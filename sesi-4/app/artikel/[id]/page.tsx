@@ -40,6 +40,12 @@ const ARTIKEL = [
   },
 ];
 
+export async function generateStaticParams() {
+  return ARTIKEL.map((artikel) => ({
+    id: artikel.id.toString(),
+  }));
+}
+
 export default async function ArtikelDetailPage({
   params,
 }: {
