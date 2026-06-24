@@ -8,6 +8,7 @@ type Props = {
   href: string;
   exact?: boolean;
   children: ReactNode;
+  icon?: ReactNode;
   className?: string;
   activeClassName?: string;
 };
@@ -16,6 +17,7 @@ export default function NavLink({
   href,
   exact = false,
   children,
+  icon,
   className = 'text-sm text-black hover:text-blue-600',
   activeClassName = 'text-sm font-semibold text-blue-600',
 }: Props) {
@@ -23,7 +25,8 @@ export default function NavLink({
   const isActive = exact ? pathname === href : pathname.startsWith(href);
 
   return (
-    <Link href={href} className={isActive ? activeClassName : className}>
+    <Link href={href} className={` flex items-center gap-2 ${isActive ? activeClassName : className}`}>
+      {icon && <span className="mr-2">{icon}</span>}
       {children}
     </Link>
   );
