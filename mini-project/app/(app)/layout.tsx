@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import NavLink from "@/components/NavLink";
 import LogoutButton from "@/components/LogoutButton";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function DashboardLayout({
   children,
@@ -62,11 +63,11 @@ export default function DashboardLayout({
 
           <LogoutButton />
         </header>
-
+<Breadcrumbs />
         <div style={{ padding: "2rem" }}>
           {children}
         </div>
       </main>
     </div>
   );
-}
+} 
