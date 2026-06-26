@@ -23,6 +23,7 @@ export default function NavLink({
         style={{
           color: active ? "yellow" : "white",
         }}
+        prefetch={false}
       >
         {label}
       </Link>

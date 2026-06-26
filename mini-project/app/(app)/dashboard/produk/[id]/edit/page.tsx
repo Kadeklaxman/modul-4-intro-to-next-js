@@ -1,3 +1,15 @@
+import { redirect } from "next/navigation";
+
+async function updateProduk(id: string, formData: FormData) {
+  "use server";
+  const name = formData.get("name") as string;
+
+  console.log("Updating product", id, name);
+
+  redirect(`/dashboard/produk/${id}`);
+}
+
+
 export default async function EditProduk({
   params,
 }: {
@@ -11,9 +23,9 @@ export default async function EditProduk({
     <>
       <h1>Edit Produk {id}</h1>
 
-      <form>
+      <form action={updateProduk.bind(null, id)}>
         <input
-          defaultValue="Kopi Arabica"
+          defaultValue="Name"
         />
 
         <br />
@@ -26,7 +38,7 @@ export default async function EditProduk({
         <br />
         <br />
 
-        <button>
+        <button >
           Simpan
         </button>
       </form>
